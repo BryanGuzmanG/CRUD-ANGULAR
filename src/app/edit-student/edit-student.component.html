@@ -1,0 +1,138 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+   <h1 class="h2">Edit Student Details</h1>
+   <div class="btn-toolbar mb-2 mb-md-0">
+      <div class="btn-group">
+         <!-- goBack() methos to back to previous component -->
+         <button class="btn btn-sm btn-outline-secondary" (click)="goBack()">Go Back</button>
+      </div>
+   </div>
+</div>
+
+
+<div class="row">
+   <div class="col-lg-12">
+      <div class="pricing-header form-block mx-auto">
+
+         <!-- Student's Edit Form -->
+         <form [formGroup]="editForm" (ngSubmit)="updateForm()">
+            <!-- <div class="row">
+               <div class="col-lg-5 col-md-12 col-sm-12">
+                  <div class="row">
+                     <div class="col-md-12 mb-3">
+                        <label>First name</label>
+                        <input type="text" formControlName="phoneNumber" class="form-control">
+                        <p *ngIf="phoneNumber.invalid" class="error">
+                            <sup>*</sup>Please enter phoneNumber
+                        </p>
+                        <p *ngIf="phoneNumber.errors?.minlength" class="error">
+                            <sup>*</sup>Name shouldn't be less than 2 words
+                        </p>
+                     </div>
+                     <div class="col-md-12 mb-3">
+                        <label>Last name</label>
+                        <input type="text" formControlName="lastName" class="form-control">
+                     </div>
+                  </div>
+                  <div class="row">
+                     <div class="col-md-12 mb-3">
+                        <label>Email</label>
+                        <input type="email" formControlName="email" class="form-control" required>
+                        <p *ngIf="email.touched && email.invalid" class="error"><sup>*</sup>Please provide email</p>
+                        <p *ngIf="email.errors?.pattern" class="error"><sup>*</sup>Please enter correct email</p>
+                     </div>
+                     <div class="col-md-12 mb-3">
+                        <label>Mobile number</label>
+                        <input type="text" formControlName="phoneNumber" class="form-control" required>
+                        <p *ngIf="phoneNumber.touched && phoneNumber.invalid" class="error">
+                           <sup>*</sup>Please provide contact number
+                        </p>
+                        <p *ngIf="phoneNumber.errors?.pattern" class="error">
+                           <sup>*</sup>Use numbers only number
+                        </p>
+                     </div>
+                  </div>
+                  <div class="form-group text-right">
+                     <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">
+                         Update Student
+                     </button>
+                  </div>
+               </div>
+            </div> -->
+            <div class="row">
+               <div class="col-lg-5 col-md-6 col-sm-12">
+                  <div class="form-group">
+                     <label for="name">Name</label>
+                     <input type="text" 
+                     class="form-control"
+                     formControlName="firstName"
+                     [class.is-invalid]="firstName.invalid && firstName.touched">
+                     <small class="text-danger"
+                     *ngIf="firstName.invalid && firstName.touched">
+                     <sup>*</sup>Please enter atleast first name
+                  </small>
+                  <p><small *ngIf="firstName.errors?.minlength" class="error">
+                     <sup>*</sup>Name shouldn't be less than 2 words
+                  </small></p>
+                  </div>
+                  <div class="form-group">
+                     <label for="name">Last Name</label>
+                     <input type="text" 
+                     class="form-control"
+                     formControlName="lastName"
+                     [class.is-invalid]="lastName.invalid && lastName.touched">
+                     <small class="text-danger"
+                     *ngIf="lastName.invalid && lastName.touched">
+                     <sup>*</sup>Please enter last name
+                  </small>
+                  </div>
+                  <div class="form-group">
+                     <label for="name">Email</label>
+                     <input type="email" 
+                     class="form-control"
+                     formControlName="email"
+                     [class.is-invalid]="email.invalid && email.touched">
+                     <!-- <small class="text-danger"
+                     *ngIf="email.invalid && email.touched">
+                     <sup>*</sup>Please enter correct email 
+                     </small>  -->
+                     <small *ngIf="email.touched && email.invalid" class="text-danger">
+                        <sup>*</sup>Please provide email
+                     </small>
+
+                     <p>
+                     <small *ngIf="email.errors?.pattern" class="text-danger">
+                        <sup>*</sup>Please enter correct email
+                     </small>
+                     </p>
+                  </div>
+                  <div class="form-group">
+                     <label for="name">Phone Number</label>
+                     <input type="text" 
+                     class="form-control"
+                     formControlName="phoneNumber"
+                     [class.is-invalid]="phoneNumber.invalid && phoneNumber.touched">
+                     <!-- <small class="text-danger"
+                     *ngIf="phoneNumber.invalid && phoneNumber.touched">
+                     Name is required
+                  </small> -->
+                  <small *ngIf="phoneNumber.touched && phoneNumber.invalid" class="error">
+                     <sup>*</sup>Please provide contact number
+                  </small>
+                   <small *ngIf="phoneNumber.errors?.pattern" class="error">
+                      <sup>*</sup>Use numbers, only number
+                  </small>
+                  </div>
+                  <div class="form-group text-right">
+                     <button type="submit" class="btn btn-success btn-block" [disabled]="!editForm.valid">
+                         Update Student
+                     </button>
+                  </div>
+               </div>
+            </div>
+            
+         </form>
+         <!-- Student's Edit Form ends-->
+         
+      </div>
+   </div>
+</div>
